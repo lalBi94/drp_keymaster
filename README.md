@@ -83,11 +83,7 @@ RegisterNetEvent("Zod#8682::vehListSend")
 
 > List of owned vehicles by THE player on your database
 
-  
-
-<br/><br/>
-
-  
+<br/>
 
 ```
 RegisterNetEvent("Zod#8682::makeCashSend")
@@ -95,11 +91,7 @@ RegisterNetEvent("Zod#8682::makeCashSend")
 
 > To remove cash (buy the keymaster)
 
-  
-
 <br/>
-
-  
 
 ```
 RegisterNetEvent("Zod#8682::destroyVeh")
@@ -107,11 +99,7 @@ RegisterNetEvent("Zod#8682::destroyVeh")
 
 > To destroy a key copy
 
-  
-
 <br/>
-
-
 
 ```
 RegisterNetEvent("Zod#8682::vehCopyListSend")
@@ -130,11 +118,7 @@ RegisterNetEvent("Zod#8682::destroyAllVeh")
 
 > To destroy al keys copy
 
-  
-
 <br/>
-
-  
 
 ## _Credits_
 
