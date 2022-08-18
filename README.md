@@ -63,7 +63,7 @@ destroyAllKey()
 confirmAlldestroy(plate)
 ```
   
->  **record = drp_keycopy.record case in .sql file**  _(STRING)_
+>  **record = drp_keycopy.record case in .sql file**  _(STRING)_<br/>
 >  **plate = The vehicle plate**  _(STRING)_
 
 **Info :** action() → destroyAllKey() → confirmAlldestroy(STRING)
