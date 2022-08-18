@@ -5,7 +5,7 @@ action()
 ```
 **Info :** Main menu
 
-<br/><br/>
+<br/>
 
 ```
 createCopy()
@@ -13,7 +13,7 @@ createCopy()
 
 **Info :** action() → createCopy()
 
-<br/><br/>
+<br/>
 
 ```
 confirm(plate)
@@ -25,7 +25,7 @@ confirm(plate)
 
 **Info :** action() → createCopy()->confirm(STRING)
 
-<br/><br/>
+<br/>
 
 ```
 destroyKey()
@@ -33,7 +33,7 @@ destroyKey()
 
 **Info :** action() → destroyKey()
 
-<br/><br/>
+<br/>
 
 ```
 confirmdestroy(record, plate)
@@ -48,7 +48,7 @@ confirmdestroy(record, plate)
 
 **Info :** action() → destroyKey()->confirmdestroy(INT, STRING)
 
-<br/><br/>
+<br/>
 
 ```
 destroyAllKey()
