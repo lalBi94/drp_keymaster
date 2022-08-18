@@ -67,9 +67,8 @@ confirmAlldestroy(plate)
 >  **plate = The vehicle plate**  _(STRING)_
 
 **Info :** action() → destroyAllKey() → confirmAlldestroy(STRING)
+
 <br/>
-
-
 
 ## _Triggers `server/`_
 
@@ -107,10 +106,7 @@ RegisterNetEvent("Zod#8682::vehCopyListSend")
 
 > List of keys copy vehicles of THE player on your database
 
-  
-
 <br/>
-
 
 ```
 RegisterNetEvent("Zod#8682::destroyAllVeh")
