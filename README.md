@@ -24,6 +24,7 @@ confirm(plate)
 >  **plate = The vehicle plate**  _(STRING)_
 
 **Info :** action() → createCopy()->confirm(STRING)
+
 <br/><br/>
 
 ```
@@ -31,6 +32,7 @@ destroyKey()
 ```
 
 **Info :** action() → destroyKey()
+
 <br/><br/>
 
 ```
@@ -45,6 +47,7 @@ confirmdestroy(record, plate)
   
 
 **Info :** action() → destroyKey()->confirmdestroy(INT, STRING)
+
 <br/><br/>
 
 ```
@@ -53,6 +56,7 @@ destroyAllKey()
   
 
 **Info :** action() → destroyAllKey()
+
 <br/><br/>
 
 ```
