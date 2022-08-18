@@ -3,26 +3,17 @@
 ```
 action()
 ```
-
-  
-
 **Info :** Main menu
 
 <br/><br/>
-
-  
 
 ```
 createCopy()
 ```
 
-  
-
 **Info :** action() → createCopy()
 
 <br/><br/>
-
-  
 
 ```
 confirm(plate)
@@ -32,8 +23,6 @@ confirm(plate)
 
 >  **plate = The vehicle plate**  _(STRING)_
 
-  
-
 **Info :** action() → createCopy()->confirm(STRING)
 <br/>
 
@@ -42,7 +31,7 @@ destroyKey()
 ```
 
 **Info :** action() → destroyKey()
-<br/>
+<br/><br/>
 
 ```
 confirmdestroy(record, plate)
@@ -56,7 +45,7 @@ confirmdestroy(record, plate)
   
 
 **Info :** action() → destroyKey()->confirmdestroy(INT, STRING)
-<br/>
+<br/><br/>
 
 ```
 destroyAllKey()
@@ -64,7 +53,7 @@ destroyAllKey()
   
 
 **Info :** action() → destroyAllKey()
-<br/>
+<br/><br/>
 
 ```
 confirmAlldestroy(plate)
@@ -92,7 +81,7 @@ RegisterNetEvent("Zod#8682::vehListSend")
 
   
 
-<br/>
+<br/><br/>
 
   
 
