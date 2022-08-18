@@ -24,7 +24,7 @@ confirm(plate)
 >  **plate = The vehicle plate**  _(STRING)_
 
 **Info :** action() → createCopy()->confirm(STRING)
-<br/>
+<br/><br/>
 
 ```
 destroyKey()
