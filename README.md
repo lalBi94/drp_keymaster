@@ -41,7 +41,7 @@ confirmdestroy(record, plate)
 
 **Argument** :<br/>
 
->  **record = drp_keycopy.record case in .sql file**  _(STRING)_
+>  **record = drp_keycopy.record case in .sql file**  _(STRING)_<br/>
 >  **plate = The vehicle plate**  _(STRING)_
 
   
