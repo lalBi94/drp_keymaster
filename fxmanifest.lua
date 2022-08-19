@@ -1,6 +1,9 @@
 fx_version 'adamant'
 game 'gta5'
 
+author 'Zod#8682'
+desc 'KeyMaster Script RageUI, ESX'
+
 client_scripts{
     "rui/RMenu.lua",
     "rui/menu/RageUI.lua",
