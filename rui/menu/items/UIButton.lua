@@ -5,7 +5,7 @@ local SettingsButton = {
     LeftBadge = { Y = -2, Width = 40, Height = 40 },
     RightBadge = { X = 385, Y = -2, Width = 40, Height = 40 },
     RightText = { X = 420, Y = 4, Scale = 0.35 },
-    SelectedSprite = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "gradient_nav", Y = 0, Width = 431, Height = 38 },
+    SelectedSprite = { Dictionary = "commonmenu", Texture = "gradient_bgd", Y = 0, Width = 431, Height = 38 },
 }
 
 ---ButtonWithStyle
@@ -22,7 +22,6 @@ function RageUI.Button(Label, Description, Style, Enabled, Callback, Submenu)
 
     ---@type table
     local CurrentMenu = RageUI.CurrentMenu;
-
     if CurrentMenu ~= nil then
         if CurrentMenu() then
 
@@ -50,7 +49,7 @@ function RageUI.Button(Label, Description, Style, Enabled, Callback, Submenu)
                     Hovered = RageUI.ItemsMouseBounds(CurrentMenu, Selected, Option, SettingsButton);
                 end
 
-                RenderRectangle(CurrentMenu.X, CurrentMenu.Y + SettingsButton.SelectedSprite.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, SettingsButton.SelectedSprite.Width + CurrentMenu.WidthOffset, SettingsButton.SelectedSprite.Height, 36, 36, 36, 255)
+                RenderRectangle(CurrentMenu.X, CurrentMenu.Y + SettingsButton.SelectedSprite.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, SettingsButton.SelectedSprite.Width + CurrentMenu.WidthOffset, SettingsButton.SelectedSprite.Height, 0, 0, 0, 255)
 
                 if Selected then
                     if Style.Color == nil then
@@ -82,7 +81,7 @@ function RageUI.Button(Label, Description, Style, Enabled, Callback, Submenu)
                         if Style.RightLabel ~= nil and Style.RightLabel ~= "" then
                             RenderText(Style.RightLabel, CurrentMenu.X + SettingsButton.RightText.X - RightBadgeOffset + CurrentMenu.WidthOffset, CurrentMenu.Y + SettingsButton.RightText.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, SettingsButton.RightText.Scale, 0, 0, 0, 255, 2)
                         end
-                        RenderText(Label, CurrentMenu.X + SettingsButton.Text.X + LeftBadgeOffset, CurrentMenu.Y + SettingsButton.Text.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, SettingsButton.Text.Scale, 0, 0, 0, 255)
+                        RenderText(Label, CurrentMenu.X + SettingsButton.Text.X + LeftBadgeOffset, CurrentMenu.Y + SettingsButton.Text.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, SettingsButton.Text.Scale, 150, 150, 150, 255)
                     else
                         if Style.RightLabel ~= nil and Style.RightLabel ~= "" then
                             RenderText(Style.RightLabel, CurrentMenu.X + SettingsButton.RightText.X - RightBadgeOffset + CurrentMenu.WidthOffset, CurrentMenu.Y + SettingsButton.RightText.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, 0, SettingsButton.RightText.Scale, 245, 245, 245, 255, 2)
@@ -101,6 +100,7 @@ function RageUI.Button(Label, Description, Style, Enabled, Callback, Submenu)
                 if (Enabled) then
                     if Selected and (CurrentMenu.Controls.Select.Active or (Hovered and CurrentMenu.Controls.Click.Active)) then
                         local Audio = RageUI.Settings.Audio
+                        
                         RageUI.PlaySound(Audio[Audio.Use].Select.audioName, Audio[Audio.Use].Select.audioRef)
                         if (Callback.onSelected ~= nil) and (Selected) then
                             Callback.onSelected();

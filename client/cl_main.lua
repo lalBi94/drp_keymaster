@@ -16,27 +16,43 @@ end
 
 function action() 
     local KeyHomeMenu = RageUI.CreateMenu(Config.title, Config.blanksubandtitle)
-    KeyHomeMenu.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
-
     RageUI.Visible(KeyHomeMenu, not RageUI.Visible(KeyHomeMenu))
 
     while KeyHomeMenu do
         Citizen.Wait(0)
-
+        
         RageUI.IsVisible(KeyHomeMenu, function()
             RageUI.Separator("~g~Création")
-            RageUI.Button(Config.KeyHomeMenu, Config.desc1, {RightLabel = "🔑"}, true, {onSelected = function()
+            RageUI.Button(Config.prefix.frst[Config.prefix.toggle]..Config.KeyHomeMenu, Config.desc1, { RightLabel = "🔑" }, true, {onSelected = function()
                 createCopy()
-            end, onActive = function() end})
+            end, onActive = function() 
+                Config.prefix.toggle = false
+                Config.prefix.toggle1 = false
+                Config.prefix.toggle2 = false
+
+                Config.prefix.toggle = true
+            end})
 
             RageUI.Separator("~r~Supression")
-            RageUI.Button(Config.DestroyKey, Config.desc2, {RightLabel = "🗑️"}, true, {onSelected = function()
+            RageUI.Button(Config.prefix.frst1[Config.prefix.toggle1]..Config.DestroyKey, Config.desc2, {RightLabel = "🗑️"}, true, {onSelected = function()
                 destroyKey()
-            end, onActive = function() end})
+            end, onActive = function() 
+                Config.prefix.toggle = false
+                Config.prefix.toggle1 = false
+                Config.prefix.toggle2 = false
 
-            RageUI.Button(Config.KeyChange, Config.desc3, {RightLabel = "🚘"}, true, {onSelected = function()
+                Config.prefix.toggle1 = true
+            end})
+
+            RageUI.Button(Config.prefix.frst2[Config.prefix.toggle2]..Config.KeyChange, Config.desc3, {RightLabel = "🚘"}, true, {onSelected = function()
                 destroyAllKey()
-            end, onActive = function() end})
+            end, onActive = function() 
+                Config.prefix.toggle = false
+                Config.prefix.toggle1 = false
+                Config.prefix.toggle2 = false
+
+                Config.prefix.toggle2 = true
+            end})
         end)
 
         if(not RageUI.Visible(KeyHomeMenu)) then
@@ -49,7 +65,6 @@ function createCopy()
     TriggerServerEvent("Zod#8682::vehListSend")
     AddEventHandler("Zod#8682::vehListReceive", function(data)
         local keyCreateMenu = RageUI.CreateMenu(Config.title, Config.KeyHomeMenuSub)
-        keyCreateMenu.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
         RageUI.Visible(keyCreateMenu, not RageUI.Visible(keyCreateMenu))
 
@@ -73,7 +88,6 @@ end
 
 function confirm(plate)
     local confirm = RageUI.CreateMenu(Config.title, plate)
-    confirm.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
     RageUI.Visible(confirm, not RageUI.Visible(confirm))
 
@@ -106,7 +120,6 @@ function destroyKey()
     TriggerServerEvent("Zod#8682::vehCopyListSend")
     AddEventHandler("Zod#8682::vehCopyListReceive", function(data)
         local keyDestroy = RageUI.CreateMenu(Config.title, Config.DestroyKeySub)
-        keyDestroy.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
         RageUI.Visible(keyDestroy, not RageUI.Visible(keyDestroy))
 
@@ -121,7 +134,6 @@ function destroyKey()
                         end, onActive = function() end})
                     end
                 end)
-
                 if(not RageUI.Visible(keyDestroy)) then
                     keyDestroy = RMenu:DeleteType(Config.title, true)
                 end
@@ -134,7 +146,6 @@ end
 
 function confirmdestroy(record, plate)
     local confirmdes = RageUI.CreateMenu(Config.title, Config.sure..plate.."] ?")
-    confirmdes.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
     RageUI.Visible(confirmdes, not RageUI.Visible(confirmdes))
 
@@ -162,7 +173,6 @@ function destroyAllKey()
     TriggerServerEvent("Zod#8682::vehListSend")
     AddEventHandler("Zod#8682::vehListReceive", function(data)
         local keyAllDestroy = RageUI.CreateMenu(Config.title, Config.KeyChangeSub)
-        keyAllDestroy.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
         RageUI.Visible(keyAllDestroy, not RageUI.Visible(keyAllDestroy))
 
@@ -186,7 +196,6 @@ end
 
 function confirmAlldestroy(plate)
     local confirmalldes = RageUI.CreateMenu(Config.title, Config.sureChange..plate.."] ?")
-    confirmalldes.Rectangle = { R = 3, G = 1, B = 32, A = 255 }
 
     RageUI.Visible(confirmalldes, not RageUI.Visible(confirmalldes))
 

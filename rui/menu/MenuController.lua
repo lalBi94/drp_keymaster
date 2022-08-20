@@ -12,8 +12,6 @@
 --- @see RageUI
 ---
 
-RageUI.LastControl = false
-
 local ControlActions = {
     'Left',
     'Right',

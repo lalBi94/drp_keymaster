@@ -19,9 +19,9 @@
 ---@public
 function RageUI.CreateMenu(Title, Subtitle, X, Y, TextureDictionary, TextureName, R, G, B, A)
 
-    R = 36
-    G = 36 
-    B = 36
+    R = 0
+    G = 0 
+    B = 0
     A = 255
 
     ---@type table
@@ -29,7 +29,6 @@ function RageUI.CreateMenu(Title, Subtitle, X, Y, TextureDictionary, TextureName
     Menu.Display = {};
 
     Menu.InstructionalButtons = {}
-
     Menu.Display.Header = true;
     Menu.Display.Glare = false;
     Menu.Display.Subtitle = true;
@@ -38,11 +37,11 @@ function RageUI.CreateMenu(Title, Subtitle, X, Y, TextureDictionary, TextureName
     Menu.Display.InstructionalButton = true;
     Menu.Display.PageCounter = false;
 
-    Menu.Title = Title or ""
+    Menu.Title = Title or "Dream Roleplay"
     Menu.TitleFont = 1
-    Menu.TitleScale = 1.2
+    Menu.TitleScale = 1.1
     Menu.Subtitle = Subtitle or nil
-    Menu.SubtitleHeight = -37
+    Menu.SubtitleHeight = nil
     Menu.Description = nil
     Menu.DescriptionHeight = RageUI.Settings.Items.Description.Background.Height
     Menu.X = X or 0
@@ -52,8 +51,8 @@ function RageUI.CreateMenu(Title, Subtitle, X, Y, TextureDictionary, TextureName
     Menu.Open = false
     Menu.Controls = RageUI.Settings.Controls
     Menu.Index = 1
-    Menu.Sprite = nil
-    Menu.Rectangle =  { R = 36, G = 36, B = 36, A = 255 }
+    Menu.Sprite = { Dictionary = TextureDictionary or "commonmenu", Texture = TextureName or "gradient_bgd", Color = { R = 0, G = 0, B = 0, A = 0 } }
+    Menu.Rectangle =  { R = 0, G = 0, B = 0, A = 255 }
     Menu.Pagination = { Minimum = 1, Maximum = 10, Total = 10 }
     Menu.Safezone = true
     Menu.SafeZoneSize = nil

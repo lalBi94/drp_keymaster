@@ -260,28 +260,28 @@ RageUI.Settings = {
     Items = {
         Title = {
             Background = { Width = 431, Height = 107 },
-            Text = { X = 215, Y = 20, Scale = 1.15 },
+            Text = { X = 225, Y = 20, Scale = 1.15 },
         },
         Subtitle = {
             Background = { Width = 431, Height = 37 },
             Text = { X = 8, Y = 3, Scale = 0.35 },
-            PreText = { X = 425, Y = 3, Scale = 0.35 },
+            PreText = { X = 0, Y = 3, Scale = 0.35 },
         },
-        Background = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "gradient_bgd", Y = 0, Width = 431 },
+        Background = { Dictionary = "commonmenu", Texture = "interaction_bgd", Y = 0, Width = 431 },
         Navigation = {
             Rectangle = { Width = 431, Height = 18 },
             Offset = 5,
-            Arrows = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "shop_arrows_upanddown", X = 190, Y = -6, Width = 50, Height = 50 },
+            Arrows = { Dictionary = "commonmenu", Texture = "shop_arrows_upanddown", X = 190, Y = -6, Width = 50, Height = 50 },
         },
         Description = {
             Bar = { Y = 4, Width = 431, Height = 4 },
-            Background = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 30 },
+            Background = { Dictionary = "commonmenu", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 30 },
             Text = { X = 8, Y = 10, Scale = 0.35 },
         },
     },
     Panels = {
         Grid = {
-            Background = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 275 },
+            Background = { Dictionary = "commonmenu", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 275 },
             Grid = { Dictionary = "pause_menu_pages_char_mom_dad", Texture = "nose_grid", X = 115.5, Y = 47.5, Width = 200, Height = 200 },
             Circle = { Dictionary = "mpinventory", Texture = "in_world_circle", X = 115.5, Y = 47.5, Width = 20, Height = 20 },
             Text = {
@@ -292,7 +292,7 @@ RageUI.Settings = {
             },
         },
         Percentage = {
-            Background = { Dictionary = "OnestlaFilsDePuteGrr", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 76 },
+            Background = { Dictionary = "commonmenu", Texture = "gradient_bgd", Y = 4, Width = 431, Height = 76 },
             Bar = { X = 9, Y = 50, Width = 413, Height = 10 },
             Text = {
                 Left = { X = 25, Y = 15, Scale = 0.35 },
@@ -399,16 +399,14 @@ function RageUI.Banner()
             RageUI.ItemsSafeZone(CurrentMenu)
             if CurrentMenu.Sprite ~= nil then
                 if CurrentMenu.Sprite.Dictionary ~= nil then
-                    if CurrentMenu.Sprite.Dictionary == "OnestlaFilsDePuteGrr" then
-                        RenderSprite(CurrentMenu.Sprite.Dictionary, CurrentMenu.Sprite.Texture, CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, CurrentMenu.Sprite.Color.R,CurrentMenu.Sprite.Color.G,CurrentMenu.Sprite.Color.B,CurrentMenu.Sprite.Color.A)
-                    else
+                    if CurrentMenu.Sprite.Dictionary == "commonmenu" then
                         RenderSprite(CurrentMenu.Sprite.Dictionary, CurrentMenu.Sprite.Texture, CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, nil)
                     end
                 else
-                    RenderRectangle(CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, CurrentMenu.Rectangle.R, CurrentMenu.Rectangle.G, CurrentMenu.Rectangle.B, CurrentMenu.Rectangle.A)
+                    RenderSprite(CurrentMenu.Sprite.Dictionary, CurrentMenu.Sprite.Texture, CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, nil)
                 end
             else
-                RenderRectangle(CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, CurrentMenu.Rectangle.R, CurrentMenu.Rectangle.G, CurrentMenu.Rectangle.B, CurrentMenu.Rectangle.A)
+                RenderSprite(CurrentMenu.Sprite.Dictionary, CurrentMenu.Sprite.Texture, CurrentMenu.X, CurrentMenu.Y, RageUI.Settings.Items.Title.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Title.Background.Height, nil)
             end
             if (CurrentMenu.Display.Glare) then
                 local ScaleformMovie = RequestScaleformMovie("MP_MENU_GLARE")
@@ -437,7 +435,7 @@ function RageUI.Subtitle()
         if CurrentMenu() and (CurrentMenu.Display.Subtitle) then
             RageUI.ItemsSafeZone(CurrentMenu)
             if CurrentMenu.Subtitle ~= "" then
-                RenderRectangle(CurrentMenu.X, CurrentMenu.Y + RageUI.ItemOffset, RageUI.Settings.Items.Subtitle.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Subtitle.Background.Height + CurrentMenu.SubtitleHeight, 22, 22, 22, 255)
+                RenderRectangle(CurrentMenu.X, CurrentMenu.Y + RageUI.ItemOffset, RageUI.Settings.Items.Subtitle.Background.Width + CurrentMenu.WidthOffset, RageUI.Settings.Items.Subtitle.Background.Height + CurrentMenu.SubtitleHeight, 0, 0, 0, 255)
                 RenderText(CurrentMenu.PageCounterColour .. CurrentMenu.Subtitle, CurrentMenu.X + RageUI.Settings.Items.Subtitle.Text.X, CurrentMenu.Y + RageUI.Settings.Items.Subtitle.Text.Y + RageUI.ItemOffset, 0, RageUI.Settings.Items.Subtitle.Text.Scale, 245, 245, 245, 255, nil, false, false, RageUI.Settings.Items.Subtitle.Background.Width + CurrentMenu.WidthOffset)
                 if CurrentMenu.Index > CurrentMenu.Options or CurrentMenu.Index < 0 then
                     CurrentMenu.Index = 1
@@ -575,7 +573,7 @@ function RageUI.ItemsMouseBounds(CurrentMenu, Selected, Option, SettingsButton)
     local Hovered = false
     Hovered = RageUI.IsMouseInBounds(CurrentMenu.X + CurrentMenu.SafeZoneSize.X, CurrentMenu.Y + SettingsButton.Rectangle.Y + CurrentMenu.SafeZoneSize.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, SettingsButton.Rectangle.Width + CurrentMenu.WidthOffset, SettingsButton.Rectangle.Height)
     if Hovered and not Selected then
-        RenderRectangle(CurrentMenu.X, CurrentMenu.Y + SettingsButton.Rectangle.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, SettingsButton.Rectangle.Width + CurrentMenu.WidthOffset, SettingsButton.Rectangle.Height, 255, 255, 255, 20)
+        RenderRectangle(CurrentMenu.X, CurrentMenu.Y + SettingsButton.Rectangle.Y + CurrentMenu.SubtitleHeight + RageUI.ItemOffset, SettingsButton.Rectangle.Width + CurrentMenu.WidthOffset, SettingsButton.Rectangle.Height, 0, 0, 0, 20)
         if CurrentMenu.Controls.Click.Active then
             CurrentMenu.Index = Option
             local Audio = RageUI.Settings.Audio

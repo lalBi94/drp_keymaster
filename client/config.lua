@@ -13,11 +13,20 @@ Config.price = 2000
 Config.Key = 51
 
 -- Truc en haut de l'ecran lol
-Config.beforeInteract = "~b~Appuyez sur ~INPUT_CONTEXT~ pour parler au serurrier"
+Config.beforeInteract = "~b~Appuyez sur ~INPUT_CONTEXT~ pour parler au ~y~Serrurier"
 
 -- RageUI
-Config.title = "Serrurier"
-Config.blanksubandtitle = " "
+Config.prefix = {}
+
+Config.prefix.frst = {[true] = "> ", [false] = " "}
+Config.prefix.frst1 = {[true] = "> ", [false] = " "}
+Config.prefix.frst2 = {[true] = "> ", [false] = " "}
+Config.prefix.toggle = false
+Config.prefix.toggle1 = false
+Config.prefix.toggle2 = false
+
+Config.title = "Dream RolePlay"
+Config.blanksubandtitle = "SERRURIER"
 
 Config.desc1 = "Pour fabriquer un doublon"
 Config.desc2 = "Pour jeter un doublon"
