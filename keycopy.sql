@@ -13,7 +13,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- Listage de la structure de table zap857733-1. drp_keycopy
-CREATE TABLE IF NOT EXISTS `drp_keycopy` (
+CREATE TABLE IF NOT EXISTS `krp_keycopy` (
   `record` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` text NOT NULL,
   `plaque` text NOT NULL,
